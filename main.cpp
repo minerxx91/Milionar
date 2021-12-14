@@ -3,6 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
+#include "windows.h"
 
 using namespace std;
 
@@ -39,16 +40,38 @@ string *ReadFile(string fileName){
 int main(){
     srand(time(NULL));
     system("CLS");
-    
+    bool GAME = true;
     string * PoleOtazky;
     PoleOtazky = ReadFile("otazky.txt");
     string * PoleOdpovede;
     PoleOdpovede = ReadFile("odpovede.txt");
-
-    for(int i=0;i<2;i++){
+    
+    /*for(int i=0;i<2;i++){
         cout << PoleOtazky[i] << '\n';
     }
+    for(int i=0;i<8;i++){
+        cout << PoleOdpovede[i] << '\n';
+    }*/
+
+    HWND console = GetConsoleWindow();
+    RECT ConsoleRect;
+    GetWindowRect(console, &ConsoleRect); 
+    MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1920, 1080, true);
     
-    //system("PAUSE");
+    while (1)
+    {
+        for(int i=0;i<237;i++){
+            cout << "-";
+        }
+
+        int cisloOtazky = rand()%2;
+        cout << PoleOtazky[cisloOtazky] << '\n';
+        for(int i=cisloOtazky*4;i<cisloOtazky*4+4;i++){
+            cout << PoleOdpovede[i] << '\n';
+        }
+        break;
+    }
+    
+    system("PAUSE");
     return 0;
 }
