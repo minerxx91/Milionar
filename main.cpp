@@ -37,10 +37,26 @@ string *ReadFile(string fileName){
     return PoleRead;
 }
 
+char moznost(int vstup){
+    if (vstup == 1){
+        return 'A';
+        }
+    else if(vstup == 2){
+        return 'B';
+        }
+    else if(vstup == 3){
+        return 'C';
+        }
+    else{
+        return 'D';
+        }
+};
+
 int main(){
     srand(time(NULL));
     system("CLS");
     bool GAME = true;
+    int moznostCislo = 1;
     string * PoleOtazky;
     PoleOtazky = ReadFile("otazky.txt");
     string * PoleOdpovede;
@@ -64,11 +80,13 @@ int main(){
             cout << "-";
         }
 
-        int cisloOtazky = rand()%2;
+        int cisloOtazky = rand()%15;
         cout << PoleOtazky[cisloOtazky] << '\n';
         for(int i=cisloOtazky*4;i<cisloOtazky*4+4;i++){
-            cout << PoleOdpovede[i] << '\n';
+            cout << moznost(moznostCislo) << " " << PoleOdpovede[i] << '\n';
+            moznostCislo ++;
         }
+        moznostCislo = 1;
         break;
     }
     
