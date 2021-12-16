@@ -37,6 +37,9 @@ string *ReadFile(string fileName){
     return PoleRead;
 }
 
+string randomOdpovede[4];
+string odpovede[4];
+
 char moznost(int vstup){
     if (vstup == 1){
         return 'A';
@@ -57,6 +60,7 @@ int main(){
     system("CLS");
     bool GAME = true;
     int moznostCislo = 1;
+    string spravnaOdpoved;
     string * PoleOtazky;
     PoleOtazky = ReadFile("otazky.txt");
     string * PoleOdpovede;
@@ -80,11 +84,41 @@ int main(){
             cout << "-";
         }
 
+        int e=0;
         int cisloOtazky = rand()%15;
         cout << PoleOtazky[cisloOtazky] << '\n';
         for(int i=cisloOtazky*4;i<cisloOtazky*4+4;i++){
-            cout << moznost(moznostCislo) << " " << PoleOdpovede[i] << '\n';
+            randomOdpovede[e] = PoleOdpovede[i];
+            e++;
+        }
+        spravnaOdpoved = randomOdpovede[0];
+        for(int i=0;i<4;i++){
+            odpovede[i] = randomOdpovede[rand() % (4)];
+            if (i==3)
+            {
+                while (true)
+                {
+                    if((odpovede[0] != odpovede[1] && odpovede[0] != odpovede[2] && odpovede[0] != odpovede[3]) && (odpovede[1] != odpovede[0] && odpovede[1] != odpovede[2] && odpovede[1] != odpovede[3]) && (odpovede[2] != odpovede[0] && odpovede[2] != odpovede[1] && odpovede[2] != odpovede[3]) && (odpovede[3] != odpovede[1] && odpovede[3] != odpovede[2] && odpovede[3] != odpovede[0])){
+                        break;
+                    }
+                    else
+                    {
+                        for(int z=0;z<4;z++){
+                            odpovede[z] = randomOdpovede[rand() % (4)];
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        for(int i=0;i<4;i++){
+            cout << moznost(moznostCislo) << ": " << odpovede[i] << " ";
             moznostCislo ++;
+            if(i % 2 == 1){
+                cout<< " " << endl;
+            }
         }
         moznostCislo = 1;
         break;
