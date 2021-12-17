@@ -39,21 +39,75 @@ string *ReadFile(string fileName){
 
 string randomOdpovede[4];
 string odpovede[4];
+string moznost;
+int peniaze;
 
-char moznost(int vstup){
+string zobrazMoznosti(int vstup){
     if (vstup == 1){
-        return 'A';
+        return "A";
         }
     else if(vstup == 2){
-        return 'B';
+        return "B";
         }
     else if(vstup == 3){
-        return 'C';
+        return "C";
         }
     else{
-        return 'D';
+        return "D";
         }
 };
+
+int kontrolujOdpoved(string moznost, string spravnaOdpoved, string odpovede[]){
+    if(moznost == "a" or "A"){
+        if (spravnaOdpoved == odpovede[0])
+        {
+            cout << "Spravne !!!"<<endl;
+        }
+        else
+        {
+            cout << "Nespravna odpoved !!!"<<endl;
+            return 0;
+        }  
+    }
+    else if(moznost == "b" or "B"){
+        if (spravnaOdpoved == odpovede[1])
+        {
+            cout << "Spravne !!!"<<endl;
+        }
+        else
+        {
+            cout << "Nespravna odpoved !!!"<<endl;
+            return 0;
+        }  
+    }
+    else if(moznost == "c" or "C"){
+        if (spravnaOdpoved == odpovede[2])
+        {
+            cout << "Spravne !!!"<<endl;
+        }
+        else
+        {
+            cout << "Nespravna odpoved !!!"<<endl;
+            return 0;
+        }  
+    }
+    else if(moznost == "d" or "D"){
+        if (spravnaOdpoved == odpovede[3])
+        {
+            cout << "Spravne !!!" <<endl;
+        }
+        else
+        {
+            cout << "Nespravna odpoved !!!"<<endl;
+            return 0;
+        }   
+    }
+    else
+    {
+        cout << "Takato moznost neexistuje !!!"<<endl;
+    }
+    
+}
 
 int main(){
     srand(time(NULL));
@@ -109,17 +163,17 @@ int main(){
                     }
                     
                 }
-                
             }
-            
         }
         for(int i=0;i<4;i++){
-            cout << moznost(moznostCislo) << ": " << odpovede[i] << " ";
+            cout << zobrazMoznosti(moznostCislo) << ": " << odpovede[i] << " ";
             moznostCislo ++;
             if(i % 2 == 1){
                 cout<< " " << endl;
             }
         }
+        cin >> moznost;
+        peniaze = kontrolujOdpoved(moznost, spravnaOdpoved, odpovede);
         moznostCislo = 1;
         break;
     }
