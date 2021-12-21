@@ -56,48 +56,48 @@ int kontrolujOdpoved(string moznost, string spravnaOdpoved, string odpovede[]){
     if(moznost == "A" || moznost == "a"){
         if (spravnaOdpoved == odpovede[0])
         {
-            cout << "Spravne !!!"<<endl;
+            //cout << "Spravne !!!"<<endl;
             return 1;
         }
         else
         {
-            cout << "Nespravna odpoved !!!"<<endl;
+            //cout << "Nespravna odpoved !!!"<<endl;
             return 0;
         }  
     }
     else if(moznost == "B" || moznost == "b"){
         if (spravnaOdpoved == odpovede[1])
         {
-            cout << "Spravne !!!"<<endl;
+            //cout << "Spravne !!!"<<endl;
             return 1;
         }
         else
         {
-            cout << "Nespravna odpoved !!!"<<endl;
+            //cout << "Nespravna odpoved !!!"<<endl;
             return 0;
         }  
     }
     else if(moznost == "C" || moznost == "c"){
         if (spravnaOdpoved == odpovede[2])
         {
-            cout << "Spravne !!!"<<endl;
+            //cout << "Spravne !!!"<<endl;
             return 1;
         }
         else
         {
-            cout << "Nespravna odpoved !!!"<<endl;
+            //cout << "Nespravna odpoved !!!"<<endl;
             return 0;
         }  
     }
     else if(moznost == "D" || moznost == "d"){
         if (spravnaOdpoved == odpovede[3])
         {
-            cout << "Spravne !!!" <<endl;
+            //cout << "Spravne !!!" <<endl;
             return 1;
         }
         else
         {
-            cout << "Nespravna odpoved !!!"<<endl;
+            //cout << "Nespravna odpoved !!!"<<endl;
             return 0;
         }   
     }
