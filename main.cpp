@@ -30,6 +30,11 @@ int main(){
     GetWindowRect(console, &ConsoleRect); 
     MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1920, 1080, true);
     
+    for(int i = 0;i<100;i++){
+        menu();
+        system("CLS"); 
+    }
+    
     while(GAME){
         if(peniazePole[peniaze] == peniazePole[sizeof(peniazePole) / sizeof(peniazePole[0]) - 1]){
             for(int i=0;i<237;i++){
