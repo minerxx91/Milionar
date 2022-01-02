@@ -5,6 +5,7 @@
 #include <time.h>
 #include "windows.h"
 #include "funkcie.h"
+#include <ctime>
 
 using namespace std;
 
@@ -30,12 +31,13 @@ int main(){
     GetWindowRect(console, &ConsoleRect); 
     MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1920, 1080, true);
     
-    for(int i = 0;i<100;i++){
-        menu();
-        system("CLS"); 
-    }
+    menu();
+    Sleep(3000);
+    system("CLS");  
     
     while(GAME){
+        clock_t time_req;
+        time_req = clock();
         if(peniazePole[peniaze] == peniazePole[sizeof(peniazePole) / sizeof(peniazePole[0]) - 1]){
             for(int i=0;i<237;i++){
                 cout << "-";
@@ -49,11 +51,11 @@ int main(){
             GAME = false;
         }
         else{
-            for(int i=0;i<237;i++){
+            for(int i=0;i<235;i++){
                 cout << "-";
             }
             cout << endl << endl;
-
+            vlado();
             int otazkySize;
             int odpovedeSize[4];
             int e=0;
@@ -109,7 +111,7 @@ int main(){
             for(int i=0;i<64 - odpovedeSize[2] - odpovedeSize[3];i++) cout << " ";
             cout << "D: " << odpovede[3];
             cout << endl << endl;
-            for(int i=0;i<237;i++){
+            for(int i=0;i<235;i++){
                 cout << "-";
             }
             cout << endl << endl;
@@ -117,7 +119,10 @@ int main(){
             while(true){
                 for(int i=0;i<105;i++) cout << " ";
                 cout << "Tvoja odpoved: ";
-                cin >> moznost;
+                getline(cin, moznost);
+                time_req = clock() - time_req;
+                showTime(time_req/1000);
+                
                 if (moznost != "a" && moznost != "A" && moznost != "b" && moznost != "B" && moznost != "c" && moznost != "C" && moznost != "d" && moznost != "D"){
                     for(int i=0;i<99;i++) cout << " ";
                     cout << "Takato moznost neexistuje !!!" << endl << endl;
