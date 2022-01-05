@@ -135,6 +135,77 @@ void showTime(double cas){
     }
 }
 
+int move(HANDLE hConsole, int currentAnswer){
+    if(GetKeyState('VK_LEFT') & 0x8000){
+        if (currentAnswer == 3)
+        {
+            currentAnswer == 1;
+        }
+        else if (currentAnswer == 4)
+        {
+            currentAnswer == 2;
+        }
+
+        SetConsoleTextAttribute(hConsole, 100);
+    }
+    else if(GetKeyState('VK_RIGHT') & 0x8000){
+        if (currentAnswer == 1)
+        {
+            currentAnswer == 3;
+        }
+        else if(currentAnswer == 2){
+            currentAnswer == 4;
+        }
+
+        SetConsoleTextAttribute(hConsole, 100);
+    }
+    else if(GetKeyState('VK_DOWN') & 0x8000){
+        if (currentAnswer == 1)
+        {
+            currentAnswer == 2;
+        }
+        else if (currentAnswer == 3)
+        {
+            currentAnswer == 4;
+        }
+
+        SetConsoleTextAttribute(hConsole, 100);
+    }    
+    else if(GetKeyState('VK_UP') & 0x8000){
+        if (currentAnswer == 2)
+        {
+            currentAnswer == 1;
+        }
+        else if (currentAnswer == 4)
+        {
+            currentAnswer == 3;
+        }                
+
+        SetConsoleTextAttribute(hConsole, 100);
+    }
+    return currentAnswer;
+}
+
+string submit(int currentAnswer){
+    string odpoved;
+    if (currentAnswer == 1){
+        odpoved = "a";
+    }
+    else if (currentAnswer == 2){
+        odpoved = "b";
+    }
+    else if (currentAnswer == 3){
+        odpoved = "c";
+    }
+    else if (currentAnswer == 4){
+        odpoved = "d";
+    }
+
+    if(GetKeyState('VK_RETURN') & 0x8000){
+        return odpoved;
+    }    
+}
+
 void vlado(){
 
     cout<<"                                                                                                `.`.....``  ``                                                                                   "<<endl;   

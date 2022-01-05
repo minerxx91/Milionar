@@ -18,6 +18,7 @@ int main(){
     string randomOdpovede[4];
     string odpovede[4];
     string moznost;
+    int currentAnswer = 1;
     int peniaze = 0;
     int peniazePole[] = {0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000};
 
@@ -26,6 +27,7 @@ int main(){
     string * PoleOdpovede;
     PoleOdpovede = ReadFile("odpovede.txt");
 
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     HWND console = GetConsoleWindow();
     RECT ConsoleRect;
     GetWindowRect(console, &ConsoleRect); 
@@ -102,7 +104,10 @@ int main(){
             */
             
             for(int i=0;i<80;i++) cout << " ";
+            if(currentAnswer == 1){
+                SetConsoleTextAttribute(hConsole, 100);}
             cout << "A: " << odpovede[0];
+            SetConsoleTextAttribute(hConsole, 15);
             for(int i=0;i<64 - odpovedeSize[0] - odpovedeSize[1];i++) cout << " ";
             cout << "B: " << odpovede[1];
             cout << endl;
