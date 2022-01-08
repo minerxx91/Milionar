@@ -5,6 +5,7 @@
 #include <time.h>
 #include "windows.h"
 #include <cmath>
+#include <mmsystem.h>
 
 using namespace std;
 
@@ -137,20 +138,44 @@ void showTime(double cas){
 
 int move(HANDLE hConsole, int currentAnswer, bool changeRound){
     if(GetKeyState(VK_LEFT) & 0x8000){
-        if (currentAnswer == 2) currentAnswer = 1;
-        else if (currentAnswer == 4) currentAnswer = 3;
+        if (currentAnswer == 2){
+            currentAnswer = 1;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
+        else if (currentAnswer == 4){
+            currentAnswer = 3;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
     }
     else if(GetKeyState(VK_RIGHT) & 0x8000){
-        if (currentAnswer == 1) currentAnswer = 2;
-        else if(currentAnswer == 3) currentAnswer = 4;
+        if (currentAnswer == 1){
+            currentAnswer = 2;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
+        else if(currentAnswer == 3){
+            currentAnswer = 4;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
     }
     else if(GetKeyState(VK_DOWN) & 0x8000){
-        if (currentAnswer == 1) currentAnswer = 3;
-        else if (currentAnswer == 2) currentAnswer = 4;
+        if (currentAnswer == 1){
+            currentAnswer = 3;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
+        else if (currentAnswer == 2){ 
+            currentAnswer = 4;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
     }    
     else if(GetKeyState(VK_UP) & 0x8000){
-        if (currentAnswer == 3) currentAnswer = 1;
-        else if (currentAnswer == 4) currentAnswer = 2;               
+        if (currentAnswer == 3){
+            currentAnswer = 1;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }
+        else if (currentAnswer == 4){
+            currentAnswer = 2;
+            PlaySound(TEXT("select.wav"), NULL, SND_SYNC);
+        }    
     }
     return currentAnswer;
 }
@@ -174,64 +199,60 @@ string submit(int currentAnswer){
 }
 
 void vlado(){
-
-    cout<<"                                                                                                `.`.....``  ``                                                                                   "<<endl;   
-    cout<<"                                                                                          ``-------::///////+++::-.`                                                                             "<<endl;   
-    cout<<"                                                                                     ```.-:://///://////++++oooooos+--+-                                                                         "<<endl;   
-    cout<<"                                                                                   `-::://++oooo+oo++///+oooossoooossossoo/.`                                                                    "<<endl;   
-    cout<<"                                                                                 `-://////+++ossoso++++oooo+oosso+o++++oosyss+.                                                                  "<<endl;   
-    cout<<"                                                                               ``/+++++///++osssooooooso++oooooooooo++++++ossss:                                                                 "<<endl;   
-    cout<<"                                                                              -//+o++++///+++o++oo+o++ooooosoo+++ossooo+++++oooo:`                                                               "<<endl;   
-    cout<<"                                                                            `:++oo++++///:/:://+++///+++++oo+o++/+sssooo++++o+ooo/`                                                              "<<endl;   
-    cout<<"                                                                            .+ooo+++////:::::///:://///+//++oo++/++ooooo++ooooooso+-                                                             "<<endl;   
-    cout<<"                                                                            -ooo+++////::::::::::::::::://///+oo++++oooooosssssooooo.                                                            "<<endl;   
-    cout<<"                                                                           -ooo+++//////::::::::::::::::::::///////++++oosssssso+osoo-                                                           "<<endl;   
-    cout<<"                                                                         `-+++++///////::::::::::::::::::://////++++++++osssyyyyyyyso+.                                                          "<<endl;   
-    cout<<"                                                                         :hhyso+///::::::-::::::::::::::::////+++++++++/+oooyyyyyyyssso:                                                         "<<endl;   
-    cout<<"                                                                        .syydddy+/:::-----::::::::::::::://///++++ooo+++++++sssyyssyyyyo-                                                        "<<endl;   
-    cout<<"                                                                        .oo+oshhyo/::----::::----------::////++++ooo+++++oooosssoosyyhhy/                                                        "<<endl;   
-    cout<<"                                                                       .ossso++oyyo/:--:::::::::::////////////++++ooo++++osooosooosyyhhs/                                                        "<<endl;   
-    cout<<"                                                                       :ssssso+++oso/:::::::/+osyhhhhhhyyso///+++++o++++++ooosooossssyhs:                                                        "<<endl;   
-    cout<<"                                                                      `:ossyyhy++oos/::::::+ossyyssoooooosys+/++++++++++++++osssssoosyhho                                                        "<<endl;   
-    cout<<"                                                                     .++oo+++++//+o+/:--:+ossooo+++///::::/ss++++++++++++++++osyssooshydh                                                        "<<endl;   
-    cout<<"                                                                     :+++oooooo++/+/:::/++//oossso+//++////+oo++++++++ooooo++oosyyoosyymd                                                        "<<endl;   
-    cout<<"                                                                    `/++///+++++++/:://///::+oooyyyo+++++++/+o+/+++++oooooo++osyyyosyyhd/                                                        "<<endl;   
-    cout<<"                                                                    .+++//////++//://///:::/+ooo+///+o+++++//+////++ooooooo+ossyysssyhdo                                                         "<<endl;   
-    cout<<"                                                                    +++///////+/////////:::://++o+////+++//:////++ooosso+++ossyhysyshds`                                                         "<<endl;   
-    cout<<"                                                                    oo+/////+o/:::/++///::::::://////:::::::://+++oosso+ooosyyyyhhyhms                                                           "<<endl;   
-    cout<<"                                                                   .oo+///++sy+//++++////:-----:::::::-::::://+++oosssoossssyyyyyhhmm-                                                           "<<endl;   
-    cout<<"                                                                  :sso++++++ydsoosys+//+++/:---.----::::::///++ooosssossshhhyhhhhyys-                                                            "<<endl;   
-    cout<<"                                                                  +ooo++oossshdyyysyysso/:+/::-----:::::///++oooossssosyhddhhs/ooo+.                                                             "<<endl;   
-    cout<<"                                                                 `+++/oossssssssooo+////--:+//:::::::////+++oooooosssosydddy+//oo//.                                                             "<<endl;   
-    cout<<"                                                                 /oo//ssyyssso+ooooo++///:://///////////++++ooososoosssyosso+++s/-`                                                              "<<endl;   
-    cout<<"                                                                 /o+//ssyyyyso++oo+oo+++++/://////////+++++ooooooooossy+/+:://oo-`                                                               "<<endl;   
-    cout<<"                                                                 /so/+sssssoossooooo++o+ooo++++++++++++/++oooosooooosyyos/-://o:                                                                 "<<endl;   
-    cout<<"                                                                `ysooooosoo++/++++ooossoso+oo//////++++++oooooo+oooosyso+/+++o:`                                                                 "<<endl;   
-    cout<<"                                                                `yysso+ooo+++++///++++++ssoo+:::::///+++ooooooooo+osys+//+++/.`                                                                  "<<endl;   
-    cout<<"                                                                 oysso++++////////+++///+oo+/:::///+/+++oooooooooooyy/+///oy+                                                                    "<<endl;   
-    cout<<"                                                                 :ysso+///////::/:://::///o+//////++++o+ooossoosssshho+++ohs.                                                                    "<<endl;   
-    cout<<"                                                                  oyso+//////::::-::::///+o+//+//++++ooooooososssyhmNy::o:.                                                                      "<<endl;   
-    cout<<"                                                                 `+hsoo+//://:::::://///+oo+++++++ooooosoooossssshdm:`                                                                           "<<endl;   
-    cout<<"                                                     `.........:ohmdhyoo///+//+/////++oosss++++oooooosssssssssyyhmN+                                                                             "<<endl;   
-    cout<<"                      `..........---:///////////+++++ossssysssyyhmNNNmhyooooooo+oo++osshyssoo+ooososssyssyyyyyhdmNd`                                                                             "<<endl;   
-    cout<<"                     :ossssssssssssssssyyyyyyyyyyyyyyyyyyyyyyyyyhmNNNNmdhyyyhhysyyyyhhhhyyysssossssyyyhyyyhhhdmNNN-                                                                              "<<endl;   
-    cout<<"                    `syyyyyyyyyyyyyyhhhhhhhhhhhhhhhhhhhhhhyyyyyyhmNNNMMmdhdhdddhddddddhhhhhyyyyyyhhhhddhhddmmmNNNN+`                                                                             "<<endl;   
-    cout<<"                    `yyyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyyhdNMMMMNmdddhhhhhhhhhhyhhhhhhhhhhdddddmmmmmmmNNNmNNh-`                                                                           "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyhhhmNMMMmmmdddhhhhhhhhhyyhyyhhhhhddddddddmmmmNNNmNNNNmyo.`                                                                        "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhddNMNmmddddddhhhhhhhyyhhhyyhhhhhddddddmmmNNmmmNMNNmmdhyys/`                                                                    "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhhhhmNNmmdddddddhhyyyyyhyyyyyyhyhhhhhhhdmdhhhhdmNNNmdddddhyys/:-.                                                                "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhhhyyyyyyhhhhhhhhhdNmddddddddhyysssssssysyyysyyysso+/:::/+oydmmmddhhhhyyyyyyys/:::::.                                                         "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhhyyyyyyyhhhhhhhhhhhyyyyyyyyhhhhhhhhhddhhhhs+++-..-:++ooooooooo+/:.````.-:/+ohdmmmddhhhhhhyyyyyyyyyyyyso+.                                                      "<<endl;   
-    cout<<"                    `yhhhhhhhhhhhhyyyyyyyyyyyyhhhhhhhyyyyyyyyyhhhhhhhyh/://:`        `.-/++/::-``     `.-:/+oshdmmmddhhhhhhhyhhhhhhhhhhyyyy+..`                                                  "<<endl;   
-    cout<<"                    `yhyhhhhyyyyyyyyyyyyyyyyyyyhhhhhyyyyyyyyyyyhhhhhhyy/``..`       ```..-..`        `.:///+shddmmddhhhhhhdddhhhhhhhhhhhhhhyyyo:```                                              "<<endl;   
-    cout<<"                    `yhhhhhhhyyyyyyyyyyyyyyyyyyhhhhyhyyyyyyyyhhhhhhhhyy/```.`   `.:--.``````````   `.-:://+ohhhdmmdhhhhhdddddddhhhhhhhhhhhhhhhhhyyo:`                                            "<<endl;   
-    cout<<"                    `//////////////////////////////////////////////////-  ``    .:--..``   ```..   ``....--:////++//////++++++//////////////////////-                                            "<<endl;   
-
-
+    cout<<"                                                                                                                             `.`.....``  ``                                                                                   "<<endl;   
+    cout<<"                                                                                                                       ``-------::///////+++::-.`                                                                             "<<endl;   
+    cout<<"                                                                                                                  ```.-:://///://////++++oooooos+--+-                                                                         "<<endl;   
+    cout<<"                                                                                                                `-::://++oooo+oo++///+oooossoooossossoo/.`                                                                    "<<endl;   
+    cout<<"                                                                                                              `-://////+++ossoso++++oooo+oosso+o++++oosyss+.                                                                  "<<endl;   
+    cout<<"                                                                                                            ``/+++++///++osssooooooso++oooooooooo++++++ossss:                                                                 "<<endl;   
+    cout<<"                                                                                                           -//+o++++///+++o++oo+o++ooooosoo+++ossooo+++++oooo:`                                                               "<<endl;   
+    cout<<"                                                                                                         `:++oo++++///:/:://+++///+++++oo+o++/+sssooo++++o+ooo/`                                                              "<<endl;   
+    cout<<"                                                                                                         .+ooo+++////:::::///:://///+//++oo++/++ooooo++ooooooso+-                                                             "<<endl;   
+    cout<<"                                                                                                         -ooo+++////::::::::::::::::://///+oo++++oooooosssssooooo.                                                            "<<endl;   
+    cout<<"                                                                                                        -ooo+++//////::::::::::::::::::::///////++++oosssssso+osoo-                                                           "<<endl;   
+    cout<<"                                                                                                      `-+++++///////::::::::::::::::::://////++++++++osssyyyyyyyso+.                                                          "<<endl;   
+    cout<<"                                                                                                      :hhyso+///::::::-::::::::::::::::////+++++++++/+oooyyyyyyyssso:                                                         "<<endl;   
+    cout<<"                                                                                                     .syydddy+/:::-----::::::::::::::://///++++ooo+++++++sssyyssyyyyo-                                                        "<<endl;   
+    cout<<"                                                                                                     .oo+oshhyo/::----::::----------::////++++ooo+++++oooosssoosyyhhy/                                                        "<<endl;   
+    cout<<"                                                                                                    .ossso++oyyo/:--:::::::::::////////////++++ooo++++osooosooosyyhhs/                                                        "<<endl;   
+    cout<<"                                                                                                    :ssssso+++oso/:::::::/+osyhhhhhhyyso///+++++o++++++ooosooossssyhs:                                                        "<<endl;   
+    cout<<"                                                                                                   `:ossyyhy++oos/::::::+ossyyssoooooosys+/++++++++++++++osssssoosyhho                                                        "<<endl;   
+    cout<<"                                                                                                  .++oo+++++//+o+/:--:+ossooo+++///::::/ss++++++++++++++++osyssooshydh                                                        "<<endl;   
+    cout<<"                                                                                                  :+++oooooo++/+/:::/++//oossso+//++////+oo++++++++ooooo++oosyyoosyymd                                                        "<<endl;   
+    cout<<"                                                                                                 `/++///+++++++/:://///::+oooyyyo+++++++/+o+/+++++oooooo++osyyyosyyhd/                                                        "<<endl;   
+    cout<<"                                                                                                 .+++//////++//://///:::/+ooo+///+o+++++//+////++ooooooo+ossyysssyhdo                                                         "<<endl;   
+    cout<<"                                                                                                 +++///////+/////////:::://++o+////+++//:////++ooosso+++ossyhysyshds`                                                         "<<endl;   
+    cout<<"                                                                                                 oo+/////+o/:::/++///::::::://////:::::::://+++oosso+ooosyyyyhhyhms                                                           "<<endl;   
+    cout<<"                                                                                                .oo+///++sy+//++++////:-----:::::::-::::://+++oosssoossssyyyyyhhmm-                                                           "<<endl;   
+    cout<<"                                                                                               :sso++++++ydsoosys+//+++/:---.----::::::///++ooosssossshhhyhhhhyys-                                                            "<<endl;   
+    cout<<"                                                                                               +ooo++oossshdyyysyysso/:+/::-----:::::///++oooossssosyhddhhs/ooo+.                                                             "<<endl;   
+    cout<<"                                                                                              `+++/oossssssssooo+////--:+//:::::::////+++oooooosssosydddy+//oo//.                                                             "<<endl;   
+    cout<<"                                                                                              /oo//ssyyssso+ooooo++///:://///////////++++ooososoosssyosso+++s/-`                                                              "<<endl;   
+    cout<<"                                                                                              /o+//ssyyyyso++oo+oo+++++/://////////+++++ooooooooossy+/+:://oo-`                                                               "<<endl;   
+    cout<<"                                                                                              /so/+sssssoossooooo++o+ooo++++++++++++/++oooosooooosyyos/-://o:                                                                 "<<endl;   
+    cout<<"                                                                                             `ysooooosoo++/++++ooossoso+oo//////++++++oooooo+oooosyso+/+++o:`                                                                 "<<endl;   
+    cout<<"                                                                                             `yysso+ooo+++++///++++++ssoo+:::::///+++ooooooooo+osys+//+++/.`                                                                  "<<endl;   
+    cout<<"                                                                                              oysso++++////////+++///+oo+/:::///+/+++oooooooooooyy/+///oy+                                                                    "<<endl;   
+    cout<<"                                                                                              :ysso+///////::/:://::///o+//////++++o+ooossoosssshho+++ohs.                                                                    "<<endl;   
+    cout<<"                                                                                               oyso+//////::::-::::///+o+//+//++++ooooooososssyhmNy::o:.                                                                      "<<endl;   
+    cout<<"                                                                                              `+hsoo+//://:::::://///+oo+++++++ooooosoooossssshdm:`                                                                           "<<endl;   
+    cout<<"                                                                                  `.........:ohmdhyoo///+//+/////++oosss++++oooooosssssssssyyhmN+                                                                             "<<endl;   
+    cout<<"                                                   `..........---:///////////+++++ossssysssyyhmNNNmhyooooooo+oo++osshyssoo+ooososssyssyyyyyhdmNd`                                                                             "<<endl;   
+    cout<<"                                                  :ossssssssssssssssyyyyyyyyyyyyyyyyyyyyyyyyyhmNNNNmdhyyyhhysyyyyhhhhyyysssossssyyyhyyyhhhdmNNN-                                                                              "<<endl;   
+    cout<<"                                                 `syyyyyyyyyyyyyyhhhhhhhhhhhhhhhhhhhhhhyyyyyyhmNNNMMmdhdhdddhddddddhhhhhyyyyyyhhhhddhhddmmmNNNN+`                                                                             "<<endl;   
+    cout<<"                                                 `yyyhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyyhdNMMMMNmdddhhhhhhhhhhyhhhhhhhhhhdddddmmmmmmmNNNmNNh-`                                                                           "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyyhhhmNMMMmmmdddhhhhhhhhhyyhyyhhhhhddddddddmmmmNNNmNNNNmyo.`                                                                        "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhddNMNmmddddddhhhhhhhyyhhhyyhhhhhddddddmmmNNmmmNMNNmmdhyys/`                                                                    "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhhhhmNNmmdddddddhhyyyyyhyyyyyyhyhhhhhhhdmdhhhhdmNNNmdddddhyys/:-.                                                                "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhhhhhhhhhyyyyyhhhhhhhyyyyyyhhhhhhhhhdNmddddddddhyysssssssysyyysyyysso+/:::/+oydmmmddhhhhyyyyyyys/:::::.                                                         "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhhyyyyyyyhhhhhhhhhhhyyyyyyyyhhhhhhhhhddhhhhs+++-..-:++ooooooooo+/:.````.-:/+ohdmmmddhhhhhhyyyyyyyyyyyyso+.                                                      "<<endl;   
+    cout<<"                                                 `yhhhhhhhhhhhhyyyyyyyyyyyyhhhhhhhyyyyyyyyyhhhhhhhyh/://:`        `.-/++/::-``     `.-:/+oshdmmmddhhhhhhhyhhhhhhhhhhyyyy+..`                                                  "<<endl;   
+    cout<<"                                                 `yhyhhhhyyyyyyyyyyyyyyyyyyyhhhhhyyyyyyyyyyyhhhhhhyy/``..`       ```..-..`        `.:///+shddmmddhhhhhhdddhhhhhhhhhhhhhhyyyo:```                                              "<<endl;   
+    cout<<"                                                 `yhhhhhhhyyyyyyyyyyyyyyyyyyhhhhyhyyyyyyyyhhhhhhhhyy/```.`   `.:--.``````````   `.-:://+ohhhdmmdhhhhhdddddddhhhhhhhhhhhhhhhhhyyo:`                                            "<<endl;   
+    cout<<"                                                 `//////////////////////////////////////////////////-  ``    .:--..``   ```..   ``....--:////++//////++++++//////////////////////-                                            "<<endl;
 }
 
 void menu(){
-
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmddhdhyyyssyyyyyyyysyyyhhdhdmmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNddhysyyssyyyyyhhhhdddddhhhhhyyyysssyyyhdmmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
@@ -293,6 +314,498 @@ void menu(){
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmdhsssyhdmmmmdymd+md/:mmm/smmdoooommmmmmmmdhyysoydmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmdhyosyyyhhddmmmmmmmdmmmmmmmmddhyyysosyhdNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
     cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNmdhysyssosssssssssossyysyddmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
-    cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl;
+    cout<<"                                                 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"<<endl<<endl;
+}             
 
-}                                                   
+void drawQuestion(HANDLE hConsole, int currentAnswer, int odpovedeSize[], string odpovede[]){
+    // prve dva obdlzniky
+    // riadok 1
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 2
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 3
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 4 odpovede a, b
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
+    cout << "A: " << odpovede[0];
+    if(odpovedeSize[0]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
+    cout << "B: " << odpovede[1];
+    if(odpovedeSize[1]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 5
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 6
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 7
+    if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    
+    cout << endl << endl;
+
+
+    // druhe dva obdlzniky
+    // riadok 1
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 2
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 3
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 4 odpovede c, d
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
+    cout << "C: " << odpovede[2];
+    if(odpovedeSize[2]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
+    cout << "D: " << odpovede[3];
+    if(odpovedeSize[3]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 5
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 6
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 7
+    if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl << endl << endl << endl;
+    
+    SetConsoleTextAttribute(hConsole, 15);
+}
+
+void drawCQuestion(HANDLE hConsole, int odpovedeSize[], string odpovede[], string moznost, string spravnaOdpoved){
+    // prve dva obdlzniky
+    // riadok 1
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 2
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 3
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 4 odpovede a, b
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
+    cout << "A: " << odpovede[0];
+    if(odpovedeSize[0]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
+    cout << "B: " << odpovede[1];
+    if(odpovedeSize[1]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 5
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 6
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 7
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "a") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[0]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "b") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[1]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    
+    cout << endl << endl;
+
+
+    // druhe dva obdlzniky
+    // riadok 1
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 2
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 3
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 4 odpovede c, d
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
+    cout << "C: " << odpovede[2];
+    if(odpovedeSize[2]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
+    cout << "D: " << odpovede[3];
+    if(odpovedeSize[3]% 2 == 1) cout << " ";
+    for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 5
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 6
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    cout << static_cast<char>(254);
+    for(int i=0;i<68;i++) cout << " ";
+    cout << static_cast<char>(254);
+    cout << endl;
+    // riadok 7
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "c") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[2]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<30;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    SetConsoleTextAttribute(hConsole, 15);
+    if(moznost == "d") SetConsoleTextAttribute(hConsole, 4);
+    if(spravnaOdpoved == odpovede[3]) SetConsoleTextAttribute(hConsole, 10);
+    for(int i=0;i<37;i++)cout << " ";
+    for(int i=0;i<70;i++) cout << static_cast<char>(254);
+    cout << endl << endl << endl << endl;
+    
+    SetConsoleTextAttribute(hConsole, 15);
+}
+
+void drawPeniaze(HANDLE hConsole, int peniaze, int peniazePole[], bool correct = true){
+    for(int i=0;i<91;i++) cout << " "; 
+    if(peniaze < 0 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 0) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 0) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[0] << " ";
+    if(peniaze < 1 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 1) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 1) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[1] << " ";
+    if(peniaze < 2 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 2) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 2) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[2] << " ";
+    if(peniaze < 3 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 3) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 3) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[3] << " ";
+    if(peniaze < 4 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 4) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 4) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[4] << " ";
+    if(peniaze < 5 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 5) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 5) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[5] << " ";
+    if(peniaze < 6 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 6) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 6) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[6] << " ";
+    if(peniaze < 7 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 7) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 7) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[7] << " ";
+    if(peniaze < 8 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 8) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 8) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[8] << " ";
+    if(peniaze < 9 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 9) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 9) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[9] << " ";
+    if(peniaze < 10 && correct == false) SetConsoleTextAttribute(hConsole, 12);
+    else if(peniaze > 10) SetConsoleTextAttribute(hConsole, 14);
+    else if(peniaze == 10) SetConsoleTextAttribute(hConsole, 6);
+    else SetConsoleTextAttribute(hConsole, 15);
+    cout << peniazePole[10] << " ";
+    cout << endl << endl << endl;
+    SetConsoleTextAttribute(hConsole, 15);
+}

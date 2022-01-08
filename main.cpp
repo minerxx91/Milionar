@@ -6,9 +6,11 @@
 #include "windows.h"
 #include "funkcie.h"
 #include <ctime>
+#include <mmsystem.h>
 
 using namespace std;
 
+//g++ main.cpp -o main.exe -lWinmm
 int main(){
     srand(time(NULL));
     system("CLS");
@@ -39,27 +41,31 @@ int main(){
     SetConsoleTextAttribute(hConsole, 15);
 
     bool endRound = false;
+    bool endGame = false;
     bool changeRound = true;
     bool changeQuestion = true;
     
     menu();
-    Sleep(150);
+    Sleep(1500);
     vlado();
-    Sleep(150);
+    SetConsoleTextAttribute(hConsole, 4);
+    cout <<"\n                                                 OVLADANIE:\n                                                 POHYB JE SIPKAMI\n                                                 POTVRDENIE VOLBY JE ENTER\n\n";
+    SetConsoleTextAttribute(hConsole, 15);
+    system("PAUSE");
     system("CLS");    
-    
     while(GAME == true){
         clock_t time_req;
         time_req = clock();
-        if(peniazePole[peniaze] == peniazePole[sizeof(peniazePole) / sizeof(peniazePole[0]) - 1]){
+        if(peniazePole[peniaze] == peniazePole[sizeof(peniazePole) / sizeof(peniazePole[0]) - 1] || endGame == true){
+            cout << endl;
             for(int i=0;i<237;i++){
                 cout << "-";
             }
-            cout << endl << endl;
+            cout << endl << endl << endl;
             for(int i=0;i<101;i++){
                 cout << " ";
             }
-            cout << "VYHRALI SI 100000 EUR !!!" << endl;
+            cout << "VYHRAL SI " << peniazePole[peniaze] <<" EUR !!!" << endl;
             system("pause");
             GAME = false;
         }
@@ -67,6 +73,7 @@ int main(){
             if(changeRound == true){
                 system("CLS");
                 changeRound = false;
+                cout << endl;
                 for(int i=0;i<237;i++){
                     cout << "-";
                 }
@@ -114,204 +121,8 @@ int main(){
                          
                 cout << endl;                
                 
-                // prve dva obdlzniky
-                // riadok 1
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 2
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 3
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 4 odpovede a, b
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
-                cout << "A: " << odpovede[0];
-                if(odpovedeSize[0]% 2 == 1) cout << " ";
-                for(int i=0;i<((68 - odpovedeSize[0])/2);i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
-                cout << "B: " << odpovede[1];
-                if(odpovedeSize[1]% 2 == 1) cout << " ";
-                for(int i=0;i<((68 - odpovedeSize[1])/2);i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 5
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 6
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 7
-                if(currentAnswer == 1) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                if(currentAnswer == 2) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                
-                cout << endl << endl;
-
-
-                // druhe dva obdlzniky
-                // riadok 1
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 2
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 3
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 4 odpovede c, d
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
-                cout << "C: " << odpovede[2];
-                if(odpovedeSize[2]% 2 == 1) cout << " ";
-                for(int i=0;i<((68 - odpovedeSize[2])/2);i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
-                cout << "D: " << odpovede[3];
-                if(odpovedeSize[3]% 2 == 1) cout << " ";
-                for(int i=0;i<((68 - odpovedeSize[3])/2);i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 5
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 6
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                cout << static_cast<char>(254);
-                for(int i=0;i<68;i++) cout << " ";
-                cout << static_cast<char>(254);
-                cout << endl;
-                // riadok 7
-                if(currentAnswer == 3) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<30;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                if(currentAnswer == 4) SetConsoleTextAttribute(hConsole, 11);
-                else SetConsoleTextAttribute(hConsole, 15);
-                for(int i=0;i<37;i++)cout << " ";
-                for(int i=0;i<70;i++) cout << static_cast<char>(254);
-                cout << endl << endl << endl << endl;
-                SetConsoleTextAttribute(hConsole, 15);
+                drawQuestion(hConsole, currentAnswer, odpovedeSize, odpovede); 
+                drawPeniaze(hConsole, peniaze, peniazePole);
 
                 for(int i=0;i<237;i++){
                     cout << "-";
@@ -325,21 +136,33 @@ int main(){
             if(GetKeyState(VK_RETURN) & 0x8000){
                 endRound = true;
                 moznost = submit(currentAnswer);
-                if (kontrolujOdpoved(moznost, spravnaOdpoved, odpovede) == 1){
-                    for(int i=0;i<104;i++) cout << " ";
-                    cout << "Spravna odpoved !!!" << endl;
+                if(kontrolujOdpoved(moznost, spravnaOdpoved, odpovede) == 1){
                     peniaze++;
-                    for(int i=0;i<98;i++) cout << " ";
-                    cout << "Zatial mozes ziskat "<< peniazePole[peniaze] << " Eur !!!" << endl;
+                    system("CLS");
+                    cout << endl;
+                    for(int i=0;i<237;i++) cout << "-";
+                    cout << endl << endl << endl;
+                    for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
+                    cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
+                    drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
+                    drawPeniaze(hConsole, peniaze, peniazePole);
+                    for(int i=0;i<237;i++) cout << "-";
+
+                    PlaySound(TEXT("correct.wav"), NULL, SND_SYNC);
                 }
-                else {
-                    for(int i=0;i<103;i++) cout << " ";
-                    cout << "Nespravna odpoved !!!" << endl;
-                    for(int i=0;i<100-(spravnaOdpoved.size()/2);i++) cout << " ";
-                    cout << "Spravna odpoved bola: " << spravnaOdpoved << " !!!" <<endl;
-                    for(int i=0;i<104;i++) cout << " ";
-                    cout << "Ziskal is "<< peniazePole[peniaze] << " Eur !!!" << endl;
-                    GAME = false;
+                else{
+                    endGame = true;
+                    system("CLS");
+                    cout << endl;
+                    for(int i=0;i<237;i++) cout << "-";
+                    cout << endl << endl << endl;
+                    for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
+                    cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
+                    drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
+                    drawPeniaze(hConsole, peniaze, peniazePole, false);
+                    for(int i=0;i<237;i++) cout << "-";
+
+                    PlaySound(TEXT("incorrect.wav"), NULL, SND_SYNC);
                 }
             }
 
