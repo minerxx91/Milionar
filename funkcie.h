@@ -9,6 +9,23 @@
 
 using namespace std;
 
+struct history{
+    bool correct;
+    string otazka;
+    int otazkaSize;
+    string odpovedA;
+    string odpovedB;
+    string odpovedC;
+    string odpovedD;
+    int odpovedASize;
+    int odpovedBSize;
+    int odpovedCSize;
+    int odpovedDSize;
+    string moznost;
+    string spravnaOdpoved;
+    int cisloOtazky;
+};
+
 string *ReadFile(string fileName){
     ifstream myFileL(fileName);
     ifstream myFile(fileName);
@@ -808,4 +825,19 @@ void drawPeniaze(HANDLE hConsole, int peniaze, int peniazePole[], bool correct =
     cout << peniazePole[10] << " ";
     cout << endl << endl << endl;
     SetConsoleTextAttribute(hConsole, 15);
+}
+
+void drawHistory(HANDLE hConsole,int peniaze, history historia[], int peniazePole[]){
+    if(peniaze > 9) peniaze = 9;
+    for(int i=0;i<peniaze+1;i++){
+        cout << endl << "Otazka " << historia[i].cisloOtazky << endl << endl; 
+        int idkBugProste = historia[i].otazkaSize;
+        for(int i=0;i<(idkBugProste);i++) cout << " ";
+        cout << "*** " << historia[i].otazka << " ***" << endl << endl << endl;
+        string historiaOdpovede[] = {historia[i].odpovedA, historia[i].odpovedB, historia[i].odpovedC, historia[i].odpovedD};
+        int odpovedeSize[] = {historia[i].odpovedASize, historia[i].odpovedBSize, historia[i].odpovedCSize, historia[i].odpovedDSize};
+        drawCQuestion(hConsole, odpovedeSize, historiaOdpovede, historia[i].moznost, historia[i].spravnaOdpoved); 
+        for(int i=0;i<237;i++) cout << "-";
+    }
+
 }
