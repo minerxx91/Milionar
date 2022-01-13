@@ -42,6 +42,8 @@ int main(){
         int cisloOtazky;
         int otazkySize;
         int odpovedeSize[4];
+        double start;
+        int last;
         string otazkyTaken[15];
 
         bool endRound = false;
@@ -49,6 +51,7 @@ int main(){
         bool changeRound = true;
         bool changeQuestion = true;
         history Historia[10];
+        clock_t time_req;
         if(firstStart == true){
             menu();
             Sleep(1500);
@@ -59,10 +62,10 @@ int main(){
             system("PAUSE");
             firstStart = false;
         }
-        system("CLS");    
+        last = round(clock()/1000);
+        start = clock();
+        system("CLS");
         while(GAME == true){
-            clock_t time_req;
-            time_req = clock();
             if(peniazePole[peniaze] == peniazePole[sizeof(peniazePole) / sizeof(peniazePole[0]) - 1] || endGame == true){
                 cout << endl;
                 for(int i=0;i<237;i++) cout << "-";
@@ -76,6 +79,7 @@ int main(){
                 for(int i=0;i<237;i++) cout << "-";
                 drawHistory(hConsole, peniaze, Historia, peniazePole);
                 GAME = false;
+                start = clock();
             }
             else{
                 if(changeRound == true){
@@ -142,17 +146,24 @@ int main(){
                     
                     drawQuestion(hConsole, currentAnswer, odpovedeSize, odpovede); 
                     drawPeniaze(hConsole, peniaze, peniazePole);
+                    time_req = clock() - start;
+                    showTime(time_req);
 
-                    for(int i=0;i<237;i++){
+                    for(int i=0;i<235;i++){
                         cout << "-";
                     }
                     //cout << endl << "Current Answer: "<< currentAnswer << endl;
+                }
+                time_req = clock() - start;
+                if (last != round(time_req/1000)){
+                    last = round(time_req/1000);
+                    changeRound = true;
                 }
                 oldAnswer = currentAnswer;
                 currentAnswer = move(hConsole, currentAnswer, changeRound);
                 if (oldAnswer != currentAnswer) changeRound = true;
                 
-                if(GetKeyState(VK_RETURN) & 0x8000){
+                if(GetKeyState(VK_RETURN) & 0x8000 || round(time_req/1000) == 15){
                     endRound = true;
                     moznost = submit(currentAnswer);
                     if(kontrolujOdpoved(moznost, spravnaOdpoved, odpovede) == 1){
@@ -173,13 +184,13 @@ int main(){
                         peniaze++;
                         system("CLS");
                         cout << endl;
-                        for(int i=0;i<237;i++) cout << "-";
+                        for(int i=0;i<235;i++) cout << "-";
                         cout << endl << endl << endl;
                         for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
                         cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
                         drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
                         drawPeniaze(hConsole, peniaze, peniazePole);
-                        for(int i=0;i<237;i++) cout << "-";
+                        for(int i=0;i<235;i++) cout << "-";
                         
                         PlaySound(TEXT("correct.wav"), NULL, SND_SYNC);
                     }
@@ -201,13 +212,13 @@ int main(){
                         endGame = true;
                         system("CLS");
                         cout << endl;
-                        for(int i=0;i<237;i++) cout << "-";
+                        for(int i=0;i<235;i++) cout << "-";
                         cout << endl << endl << endl;
                         for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
                         cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
                         drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
                         drawPeniaze(hConsole, peniaze, peniazePole, false);
-                        for(int i=0;i<237;i++) cout << "-";
+                        for(int i=0;i<235;i++) cout << "-";
 
                         PlaySound(TEXT("incorrect.wav"), NULL, SND_SYNC);
                     }
@@ -222,6 +233,7 @@ int main(){
                     system("PAUSE");
                     Sleep(500);
                     system("CLS");
+                    start = clock();
                 }
             }
         }
@@ -230,6 +242,7 @@ int main(){
         while(askToPlayAgain){
             if(GetKeyState(VK_RETURN) & 0x8000){
                 askToPlayAgain = false;
+                start = clock();
             }
             if(GetKeyState(VK_ESCAPE) & 0x8000){
                 askToPlayAgain = false;

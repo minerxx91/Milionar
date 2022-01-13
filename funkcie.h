@@ -129,28 +129,169 @@ int kontrolujOdpoved(string moznost, string spravnaOdpoved, string odpovede[]){
 }
 
 void showTime(double cas){
-    int time = round(cas);
+    int time = round(cas/1000);
 
-    if (time == 1)
+    if (time == 15)
     {
-        cout<<"1"<<endl;
+        cout<<"  #   "<<endl;
+        cout<<" ##   "<<endl;
+        cout<<"# #   "<<endl;
+        cout<<"  #   "<<endl;
+        cout<<"  #   "<<endl;
+        cout<<"  #   "<<endl;
+        cout<<"##### "<<endl;
     }
-    else if (time == 2)
+    else if (time == 14)
     {
-        cout<<"2"<<endl;
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"      # "<<endl;
+        cout<<" #####  "<<endl;
+        cout<<"#       "<<endl;
+        cout<<"#       "<<endl;
+        cout<<"####### "<<endl;
     }
-    else if (time == 3)
+    else if (time == 13)
     {
-        cout<<"3"<<endl;
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"      # "<<endl;
+        cout<<" #####  "<<endl;
+        cout<<"      # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
     }
-    else if (time == 4)
-    {
-        cout<<"4"<<endl;
+    else if (time == 12)
+    { 
+        cout<<"#       "<<endl;
+        cout<<"#    #  "<<endl;
+        cout<<"#    #  "<<endl;
+        cout<<"#    #  "<<endl;
+        cout<<"####### "<<endl;
+        cout<<"     #  "<<endl;
+        cout<<"     #  "<<endl;
     }
+    else if (time == 11)
+    {    
+        cout<<"####### "<<endl;
+        cout<<"#       "<<endl;
+        cout<<"#       "<<endl;
+        cout<<"######  "<<endl;
+        cout<<"      # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
+    }
+
+    else if (time == 10)
+    {      
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"#       "<<endl;
+        cout<<"######  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
+    }
+
+    else if (time == 9)
+    { 
+        cout<<"####### "<<endl;
+        cout<<"#    #  "<<endl;
+        cout<<"    #   "<<endl;
+        cout<<"   #    "<<endl;
+        cout<<"  #     "<<endl;
+        cout<<"  #     "<<endl;
+        cout<<"  #     "<<endl;
+    }
+    
+    else if (time == 8)
+    {  
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
+    }
+    
+    else if (time == 7)
+    {   
+        cout<<" #####  "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" ###### "<<endl;
+        cout<<"      # "<<endl;
+        cout<<"#     # "<<endl;
+        cout<<" #####  "<<endl;
+    }
+
+    else if (time == 6)
+    {   
+        cout<<"  #     ###   "<<endl;
+        cout<<" ##    #   #  "<<endl;
+        cout<<"# #   #     # "<<endl;
+        cout<<"  #   #     # "<<endl;
+        cout<<"  #   #     # "<<endl;
+        cout<<"  #    #   #  "<<endl;
+        cout<<"#####   ###   "<<endl;
+    }
+
     else if (time == 5)
     {
-        cout<<"5"<<endl;
+        cout<<"  #     #   "<<endl;
+        cout<<" ##    ##   "<<endl;
+        cout<<"# #   # #   "<<endl;
+        cout<<"  #     #   "<<endl;
+        cout<<"  #     #   "<<endl;
+        cout<<"  #     #   "<<endl;
+        cout<<"##### ##### "<<endl; 
     }
+    
+    else if (time == 4)
+    {
+        cout<<"  #    #####  "<<endl; 
+        cout<<" ##   #     # "<<endl; 
+        cout<<"# #         # "<<endl; 
+        cout<<"  #    #####  "<<endl; 
+        cout<<"  #   #       "<<endl; 
+        cout<<"  #   #       "<<endl; 
+        cout<<"##### ####### "<<endl; 
+    }
+
+    else if (time == 3)
+    {
+        cout<<"  #    #####  "<<endl; 
+        cout<<" ##   #     # "<<endl; 
+        cout<<"# #         # "<<endl; 
+        cout<<"  #    #####  "<<endl; 
+        cout<<"  #         # "<<endl; 
+        cout<<"  #   #     # "<<endl; 
+        cout<<"#####  #####  "<<endl; 
+    }
+
+    else if (time == 2)
+    {
+        cout<<"  #   #       "<<endl;
+        cout<<" ##   #    #  "<<endl;
+        cout<<"# #   #    #  "<<endl;
+        cout<<"  #   #    #  "<<endl;
+        cout<<"  #   ####### "<<endl;
+        cout<<"  #        #  "<<endl;
+        cout<<"#####      #  "<<endl;
+    }
+
+    else if (time == 1)
+    {
+        cout<<"  #   ####### "<<endl;
+        cout<<" ##   #       "<<endl;
+        cout<<"# #   #       "<<endl;
+        cout<<"  #   ######  "<<endl;
+        cout<<"  #         # "<<endl;
+        cout<<"  #   #     # "<<endl;
+        cout<<"#####  #####  "<<endl;
+    }
+
 }
 
 int move(HANDLE hConsole, int currentAnswer, bool changeRound){
