@@ -133,163 +133,163 @@ void showTime(double cas){
 
     if (time == 15)
     {
-        cout<<"  #   "<<endl;
-        cout<<" ##   "<<endl;
-        cout<<"# #   "<<endl;
-        cout<<"  #   "<<endl;
-        cout<<"  #   "<<endl;
-        cout<<"  #   "<<endl;
-        cout<<"##### "<<endl;
+        cout<<"                                                                                                                     #   "<<endl;
+        cout<<"                                                                                                                    ##   "<<endl;
+        cout<<"                                                                                                                   # #   "<<endl;
+        cout<<"                                                                                                                     #   "<<endl;
+        cout<<"                                                                                                                     #   "<<endl;
+        cout<<"                                                                                                                     #   "<<endl;
+        cout<<"                                                                                                                   ##### "<<endl;
     }
     else if (time == 14)
     {
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"      # "<<endl;
-        cout<<" #####  "<<endl;
-        cout<<"#       "<<endl;
-        cout<<"#       "<<endl;
-        cout<<"####### "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                        # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  ####### "<<endl;
     }
     else if (time == 13)
     {
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"      # "<<endl;
-        cout<<" #####  "<<endl;
-        cout<<"      # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                        # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                        # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
     }
     else if (time == 12)
     { 
-        cout<<"#       "<<endl;
-        cout<<"#    #  "<<endl;
-        cout<<"#    #  "<<endl;
-        cout<<"#    #  "<<endl;
-        cout<<"####### "<<endl;
-        cout<<"     #  "<<endl;
-        cout<<"     #  "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  #    #  "<<endl;
+        cout<<"                                                                                                                  #    #  "<<endl;
+        cout<<"                                                                                                                  #    #  "<<endl;
+        cout<<"                                                                                                                  ####### "<<endl;
+        cout<<"                                                                                                                       #  "<<endl;
+        cout<<"                                                                                                                       #  "<<endl;
     }
     else if (time == 11)
     {    
-        cout<<"####### "<<endl;
-        cout<<"#       "<<endl;
-        cout<<"#       "<<endl;
-        cout<<"######  "<<endl;
-        cout<<"      # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
+        cout<<"                                                                                                                  ####### "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  ######  "<<endl;
+        cout<<"                                                                                                                        # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
     }
 
     else if (time == 10)
     {      
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"#       "<<endl;
-        cout<<"######  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                  #       "<<endl;
+        cout<<"                                                                                                                  ######  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
     }
 
     else if (time == 9)
     { 
-        cout<<"####### "<<endl;
-        cout<<"#    #  "<<endl;
-        cout<<"    #   "<<endl;
-        cout<<"   #    "<<endl;
-        cout<<"  #     "<<endl;
-        cout<<"  #     "<<endl;
-        cout<<"  #     "<<endl;
+        cout<<"                                                                                                                  ####### "<<endl;
+        cout<<"                                                                                                                  #    #  "<<endl;
+        cout<<"                                                                                                                      #   "<<endl;
+        cout<<"                                                                                                                     #    "<<endl;
+        cout<<"                                                                                                                    #     "<<endl;
+        cout<<"                                                                                                                    #     "<<endl;
+        cout<<"                                                                                                                    #     "<<endl;
     }
     
     else if (time == 8)
     {  
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
     }
     
     else if (time == 7)
     {   
-        cout<<" #####  "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" ###### "<<endl;
-        cout<<"      # "<<endl;
-        cout<<"#     # "<<endl;
-        cout<<" #####  "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   ###### "<<endl;
+        cout<<"                                                                                                                        # "<<endl;
+        cout<<"                                                                                                                  #     # "<<endl;
+        cout<<"                                                                                                                   #####  "<<endl;
     }
 
     else if (time == 6)
     {   
-        cout<<"  #     ###   "<<endl;
-        cout<<" ##    #   #  "<<endl;
-        cout<<"# #   #     # "<<endl;
-        cout<<"  #   #     # "<<endl;
-        cout<<"  #   #     # "<<endl;
-        cout<<"  #    #   #  "<<endl;
-        cout<<"#####   ###   "<<endl;
+        cout<<"                                                                                                                  #     ###   "<<endl;
+        cout<<"                                                                                                                 ##    #   #  "<<endl;
+        cout<<"                                                                                                                # #   #     # "<<endl;
+        cout<<"                                                                                                                  #   #     # "<<endl;
+        cout<<"                                                                                                                  #   #     # "<<endl;
+        cout<<"                                                                                                                  #    #   #  "<<endl;
+        cout<<"                                                                                                                #####   ###   "<<endl;
     }
 
     else if (time == 5)
     {
-        cout<<"  #     #   "<<endl;
-        cout<<" ##    ##   "<<endl;
-        cout<<"# #   # #   "<<endl;
-        cout<<"  #     #   "<<endl;
-        cout<<"  #     #   "<<endl;
-        cout<<"  #     #   "<<endl;
-        cout<<"##### ##### "<<endl; 
+        cout<<"                                                                                                                  #     #   "<<endl;
+        cout<<"                                                                                                                 ##    ##   "<<endl;
+        cout<<"                                                                                                                # #   # #   "<<endl;
+        cout<<"                                                                                                                  #     #   "<<endl;
+        cout<<"                                                                                                                  #     #   "<<endl;
+        cout<<"                                                                                                                  #     #   "<<endl;
+        cout<<"                                                                                                                ##### ##### "<<endl; 
     }
     
     else if (time == 4)
     {
-        cout<<"  #    #####  "<<endl; 
-        cout<<" ##   #     # "<<endl; 
-        cout<<"# #         # "<<endl; 
-        cout<<"  #    #####  "<<endl; 
-        cout<<"  #   #       "<<endl; 
-        cout<<"  #   #       "<<endl; 
-        cout<<"##### ####### "<<endl; 
+        cout<<"                                                                                                                  #    #####  "<<endl; 
+        cout<<"                                                                                                                 ##   #     # "<<endl; 
+        cout<<"                                                                                                                # #         # "<<endl; 
+        cout<<"                                                                                                                  #    #####  "<<endl; 
+        cout<<"                                                                                                                  #   #       "<<endl; 
+        cout<<"                                                                                                                  #   #       "<<endl; 
+        cout<<"                                                                                                                ##### ####### "<<endl; 
     }
 
     else if (time == 3)
     {
-        cout<<"  #    #####  "<<endl; 
-        cout<<" ##   #     # "<<endl; 
-        cout<<"# #         # "<<endl; 
-        cout<<"  #    #####  "<<endl; 
-        cout<<"  #         # "<<endl; 
-        cout<<"  #   #     # "<<endl; 
-        cout<<"#####  #####  "<<endl; 
+        cout<<"                                                                                                                  #    #####  "<<endl; 
+        cout<<"                                                                                                                 ##   #     # "<<endl; 
+        cout<<"                                                                                                                # #         # "<<endl; 
+        cout<<"                                                                                                                  #    #####  "<<endl; 
+        cout<<"                                                                                                                  #         # "<<endl; 
+        cout<<"                                                                                                                  #   #     # "<<endl; 
+        cout<<"                                                                                                                #####  #####  "<<endl; 
     }
 
     else if (time == 2)
     {
-        cout<<"  #   #       "<<endl;
-        cout<<" ##   #    #  "<<endl;
-        cout<<"# #   #    #  "<<endl;
-        cout<<"  #   #    #  "<<endl;
-        cout<<"  #   ####### "<<endl;
-        cout<<"  #        #  "<<endl;
-        cout<<"#####      #  "<<endl;
+        cout<<"                                                                                                                  #   #       "<<endl;
+        cout<<"                                                                                                                 ##   #    #  "<<endl;
+        cout<<"                                                                                                                # #   #    #  "<<endl;
+        cout<<"                                                                                                                  #   #    #  "<<endl;
+        cout<<"                                                                                                                  #   ####### "<<endl;
+        cout<<"                                                                                                                  #        #  "<<endl;
+        cout<<"                                                                                                                #####      #  "<<endl;
     }
 
     else if (time == 1)
     {
-        cout<<"  #   ####### "<<endl;
-        cout<<" ##   #       "<<endl;
-        cout<<"# #   #       "<<endl;
-        cout<<"  #   ######  "<<endl;
-        cout<<"  #         # "<<endl;
-        cout<<"  #   #     # "<<endl;
-        cout<<"#####  #####  "<<endl;
+        cout<<"                                                                                                                  #   ####### "<<endl;
+        cout<<"                                                                                                                 ##   #       "<<endl;
+        cout<<"                                                                                                                # #   #       "<<endl;
+        cout<<"                                                                                                                  #   ######  "<<endl;
+        cout<<"                                                                                                                  #         # "<<endl;
+        cout<<"                                                                                                                  #   #     # "<<endl;                                                                                                                
+        cout<<"                                                                                                                #####  #####  "<<endl;
     }
 
 }

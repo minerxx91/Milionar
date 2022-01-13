@@ -149,7 +149,7 @@ int main(){
                     time_req = clock() - start;
                     showTime(time_req);
 
-                    for(int i=0;i<235;i++){
+                    for(int i=0;i<237;i++){
                         cout << "-";
                     }
                     //cout << endl << "Current Answer: "<< currentAnswer << endl;
@@ -163,7 +163,7 @@ int main(){
                 currentAnswer = move(hConsole, currentAnswer, changeRound);
                 if (oldAnswer != currentAnswer) changeRound = true;
                 
-                if(GetKeyState(VK_RETURN) & 0x8000 || round(time_req/1000) == 15){
+                if(GetKeyState(VK_RETURN) & 0x8000 || round(time_req/1000) == 16){
                     endRound = true;
                     moznost = submit(currentAnswer);
                     if(kontrolujOdpoved(moznost, spravnaOdpoved, odpovede) == 1){
@@ -184,13 +184,13 @@ int main(){
                         peniaze++;
                         system("CLS");
                         cout << endl;
-                        for(int i=0;i<235;i++) cout << "-";
+                        for(int i=0;i<237;i++) cout << "-";
                         cout << endl << endl << endl;
                         for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
                         cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
                         drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
                         drawPeniaze(hConsole, peniaze, peniazePole);
-                        for(int i=0;i<235;i++) cout << "-";
+                        for(int i=0;i<237;i++) cout << "-";
                         
                         PlaySound(TEXT("correct.wav"), NULL, SND_SYNC);
                     }
@@ -212,13 +212,13 @@ int main(){
                         endGame = true;
                         system("CLS");
                         cout << endl;
-                        for(int i=0;i<235;i++) cout << "-";
+                        for(int i=0;i<237;i++) cout << "-";
                         cout << endl << endl << endl;
                         for(int i=0;i<(237-(otazkySize))/2-4;i++) cout << " ";
                         cout << "*** " << PoleOtazky[cisloOtazky] << " ***" << endl << endl << endl;
                         drawCQuestion(hConsole, odpovedeSize, odpovede, moznost, spravnaOdpoved); 
                         drawPeniaze(hConsole, peniaze, peniazePole, false);
-                        for(int i=0;i<235;i++) cout << "-";
+                        for(int i=0;i<237;i++) cout << "-";
 
                         PlaySound(TEXT("incorrect.wav"), NULL, SND_SYNC);
                     }
